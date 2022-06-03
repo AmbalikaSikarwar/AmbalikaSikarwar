@@ -1,0 +1,161 @@
+import React, {useState} from 'react';
+import { MDBCard, MDBCardBody} from 'mdb-react-ui-kit';
+import "./testtask.css";
+
+
+function Testtask() {
+
+  const [basePrice, setBasePrice] = useState(1000);
+  const [color, setColor] = useState(0);
+  const [power, setPower] = useState(0);
+  const [warpDrive, setWarpDrive] = useState(0);
+  const [optionPackage, setOptionPackage] = useState(0);
+
+  const [activeColor, setActiveColor] = useState("")  
+  const [activePower, setActivePower] = useState("")
+  const [activeDrive, setActiveDrive] = useState("")
+  const [activePackage, setActivePackage] = useState("") 
+
+const Snow = (e) => {
+  setColor(0)
+  setActiveColor(e.target.id);
+}
+
+const Volcano = (e) => {
+  setColor(100)
+  setActiveColor(e.target.id);
+}
+
+const Sky = (e) => {
+  setColor(200)
+  setActiveColor(e.target.id);
+}
+
+const normalpower = (e) => {
+  setPower(0)
+  setActivePower(e.target.id);
+} 
+
+const midpower = (e) =>{
+  setPower(200)
+  setActivePower(e.target.id)
+}
+
+const highpower = (e) => {
+   setPower(500)
+   setActivePower(e.target.id)
+}
+
+const nope = (e) => {
+  setWarpDrive(0)
+  setActiveDrive(e.target.id)
+} 
+
+const yes = (e) => {
+   setWarpDrive(1000)
+   setActiveDrive(e.target.id)
+}
+
+const packageone = (e) => {
+  setOptionPackage(0)
+  setActivePackage(e.target.id)
+}
+
+const packagetwo = (e) => {
+  setOptionPackage(200)
+  setActivePackage(e.target.id)
+}
+
+const packagethree = (e) => {
+  setOptionPackage(400)
+  setActivePackage(e.target.id)
+}
+
+  return (
+    <div>
+    <center><h2><u>Spaceship configerator</u></h2></center>
+    <div class="container">
+    <div class="row">
+      <div class="col">
+      <p>
+      <h4>Select Color</h4>
+      <button type="button" class="btn btn-info" onClick = {Snow} id={"1"} className = {activeColor === "1" ? "active": "button white"}
+      >
+      +0€ <br></br> Snow</button>{" "}
+      <button type="button" class="btn btn-info" onClick = {Volcano} id={"2"} className = {activeColor === "2" ? "active": "button white"}>+100€ <br></br>  volcano</button>{" "}
+      <button type="button" class="btn btn-info"  onClick = {Sky} id={"3"} className = {activeColor === "3" ? "active": "button white"}>+200€ <br></br>  Sky</button>{" "}
+      </p><br></br>
+      <p>
+      <h4>Select Power</h4>
+      <button type="button" onClick = {normalpower}  key={4} id={"4"} className={activePower === "4" ? "active2" :"button power1"}
+      class ="button power1">100 MW<br></br>  +0€ </button>{" "}
+      <button type="button" onClick = {midpower}  key={4} id={"5"} className={activePower === "5" ? "active2" :"button power1"}
+      class ="button power1">140 MW <br></br> +200€ </button>{" "}
+      <button type="button" onClick = {highpower}  key={4} id={"6"}className={activePower === "6" ? "active2" :"button power1"}
+      class ="button power1">200 MW <br></br> +500€ </button>{" "}
+      </p><br></br>
+      <p>
+      <h4>Warp Drive</h4>
+      <button type="button"  onClick = {nope} key={7} id={"7"}
+      className={activeDrive === "7" ? "active3" :"button power1"} class ="button power1">NO <br></br> +0€ </button>{" "}
+      
+      <button type="button"  onClick= {yes} key={8} id={"8"}
+      className={activeDrive === "8" ? "active3" :"button power1"}
+     class ="button power1" >YES <br></br>  +1000€ </button>{" "}
+      </p><br></br>
+      <p>
+      <h4>Select Option Package:</h4>
+      <p><button type="button" onClick ={packageone} key ={9} id={9}
+      className={activePackage === "9" ? "active3" :"button power1"}
+      class ="button power1"
+      ><h4>Basic</h4><p>. Air Conditioning</p>
+      <p>. Cloth seats</p>
+      <p>. Fm radio</p>    
+      <p>.</p> 
+      
+      </button>{" "}
+  
+      <button type="button" onClick ={packagetwo} key ={10} id={10}
+      className={activePackage === "10" ? "active3" :"button power1"} class ="button power1"><h4>Sport +100€ </h4>
+      <p>. Air Conditioning</p>
+      <p>. Cloth seats</p>
+      <p>. Fm radio</p>    
+      <p>. Personal tech support</p>  
+      
+      </button>{" "}
+  
+      <button  type="button" onClick = {packagethree}  key ={11} id={11}
+      className={activePackage === "11" ? "active3" :"button power1 "} class ="button power1"><h4>Lux +400€ </h4>
+      <p>. Air Conditioning</p>
+      <p>. luxury seats</p>
+      <p>. chrome weels</p>
+      <p>. window tint</p>      
+        
+      </button>
+      </p>
+      </p>
+      
+      </div>
+      
+      <div class="col">
+      <MDBCard style={{ maxWidth: '22rem' }}>
+      <MDBCardBody>
+      <h4>Base Price: {basePrice} € </h4>
+      <h4>Color:  {color} € </h4>
+      <h4>Power:  {power} € </h4>
+      <h4>Warp drive: {warpDrive} €</h4>
+      <h4>Option package: {optionPackage} € </h4>
+      <div class="card-footer">
+      <h4>Total:  {basePrice + color + power + warpDrive + optionPackage} €  </h4>
+      </div>
+      </MDBCardBody>
+      </MDBCard>
+      </div>
+    </div>
+    </div>
+
+    </div>
+  )
+}
+
+export default Testtask;
