@@ -1,0 +1,98 @@
+@import url("http://fonts.cdnfonts.com/css/open-sans");
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #dadada;
+}
+
+.mainContainer {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.imageBox {
+    position: relative;
+    margin: 10px 0;
+}
+
+.imageBox img {
+    max-width: 100%;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: #00aaee;
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.imageBox:hover .overlay {
+    opacity: 1;
+}
+
+.divider {
+    max-width: 300px;
+    margin: 25px auto;
+}
+
+.generateBtn {
+    background-color: #00aaee !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    border: none !important;
+    margin: 0 auto;
+    display: flex !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dadada;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media only screen and (max-width: 767px) {
+    .mainContainer [class^="container"] {
+        max-width: 95%;
+    }
+
+    .imageBox img {
+        max-height: 230px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mainContainer {
+        max-width: 100%;
+    }
+
+    .customiseColoum {
+        width: 100% !important;
+    }
+
+    .imageBox img {
+        max-height: 250px;
+    }
+}
